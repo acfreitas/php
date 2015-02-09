@@ -7,10 +7,10 @@ version           '1.5.0'
 
 depends 'build-essential'
 depends 'xml'
-depends 'mysql'
 depends 'yum-epel'
-depends 'windows'
-depends 'iis'
+# depends 'mysql'
+# depends 'windows'
+# depends 'iis'
 
 %w{ debian ubuntu centos redhat fedora scientific amazon windows oracle }.each do |os|
   supports os
@@ -27,5 +27,5 @@ recipe 'php::module_gd', 'Install the php5-gd package'
 recipe 'php::module_ldap', 'Install the php5-ldap package'
 recipe 'php::module_memcache', 'Install the php5-memcache package'
 recipe 'php::module_mysql', 'Install the php5-mysql package'
-recipe 'php::module_pgsql', 'Install the php5-pgsql packag'
+recipe 'php::module_pgsql', 'Install the php5-pgsql package'
 recipe 'php::module_sqlite3', 'Install the php5-sqlite3 package'

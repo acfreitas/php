@@ -22,8 +22,6 @@ configure_options = node['php']['configure_options'].join(' ')
 
 include_recipe 'build-essential'
 include_recipe 'xml'
-include_recipe 'mysql::client' if configure_options =~ /mysql/
-include_recipe 'yum-epel' if node['platform_family'] == 'rhel'
 
 pkgs = value_for_platform_family(
   %w{ rhel fedora } => %w{ bzip2-devel libc-client-devel curl-devel freetype-devel gmp-devel libjpeg-devel krb5-devel libmcrypt-devel libpng-devel openssl-devel t1lib-devel mhash-devel },
@@ -40,8 +38,7 @@ end
 version = node['php']['version']
 
 remote_file "#{Chef::Config[:file_cache_path]}/php-#{version}.tar.gz" do
-  source "#{node['php']['url']}/php-#{version}.tar.gz/from/this/mirror"
-  checksum node['php']['checksum']
+  source "#{node['php']['url']}/php-#{version}.tar.gz"
   mode '0644'
   not_if "which #{node['php']['bin']}"
 end
