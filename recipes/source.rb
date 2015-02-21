@@ -38,7 +38,7 @@ end
 version = node['php']['version']
 
 remote_file "#{Chef::Config[:file_cache_path]}/php-#{version}.tar.gz" do
-  source "#{node['php']['url']}/php-#{version}.tar.gz"
+  source "#{node['php']['url']}/php-#{version}.tar.gz/from/this/mirror"
   mode '0644'
   not_if "which #{node['php']['bin']}"
 end
