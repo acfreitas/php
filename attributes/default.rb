@@ -113,7 +113,11 @@ default['php']['configure_options'] = %W{--prefix=#{php['prefix_dir']}
                                          --with-libevent-dir
                                          --with-mcrypt
                                          --enable-mbstring
-                                         --with-t1lib}
+                                         --with-t1lib
+                                         --with-mysql
+                                         --with-mysqli=/usr/bin/mysql_config
+                                         --with-mysql-sock
+                                         --with-pdo-mysql}
 
 default['php']['ini']['template'] = "php.ini.erb"
 default['php']['ini']['cookbook'] = "php"
